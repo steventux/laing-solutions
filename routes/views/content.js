@@ -15,10 +15,14 @@ exports = module.exports = function(req, res) {
 
   view.on('init', function(next) {
 
-    var content = keystone.list('Content').model.findBySlug('home')
+    var content = keystone.list('Content').model.findBySlug(req.params.slug)
       .exec(function(err, results) {
-        if (err || !results.length) {
+        if (err) {
           next(err);
+        } else if (!results.length) {
+          locals.data.content.title = 'No content found at /' + req.params.slug;
+          locals.data.content.body = 'Please log in to create content.';
+          next();
         } else {
           locals.data.content = results[0];
           next();
@@ -27,5 +31,5 @@ exports = module.exports = function(req, res) {
   });
 
   // Render the view
-  view.render('index', locals.data.content);
+  view.render('content', locals.data.content);
 };
