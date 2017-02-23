@@ -326,5 +326,9 @@ module.exports = function () {
 		return obj._[underscoreMethod].format();
 	};
 
+  _helpers.currentYear = function () {
+    return new Date().getFullYear();
+  }
+
 	return _helpers;
 };
