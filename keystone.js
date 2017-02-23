@@ -32,6 +32,9 @@ keystone.init({
 	'user model': 'User',
 });
 keystone.import('models');
+
+keystone.set('cloudinary config', process.env['CLOUDINARY_URL']);
+
 keystone.set('locals', {
 	_: require('lodash'),
 	env: keystone.get('env'),
