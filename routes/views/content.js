@@ -2,6 +2,9 @@ var keystone = require('keystone');
 
 exports = module.exports = function(req, res) {
 
+  // Set cache control header
+  res.set('Cache-control', 'max-age=1800, public');
+
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
@@ -20,8 +23,8 @@ exports = module.exports = function(req, res) {
         if (err) {
           next(err);
         } else if (!results.length) {
-          locals.data.content.title = 'No content found at /' + req.params.slug;
-          locals.data.content.body = 'Please log in to create content.';
+          locals.data.content.body = '<h1>No content found at /' + req.params.slug + '</h1>';
+          locals.data.content.body += '<p>Please <a href="/keystone">log in</a> to create content.</p>';
           next();
         } else {
           locals.data.content = results[0];
