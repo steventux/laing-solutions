@@ -34,6 +34,7 @@ keystone.init({
 keystone.import('models');
 
 keystone.set('cloudinary config', process.env['CLOUDINARY_URL']);
+keystone.set('compress', true);
 
 keystone.set('locals', {
 	_: require('lodash'),
