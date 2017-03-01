@@ -29,6 +29,7 @@ body {
 header {
   background: url('https://cdn.jsdelivr.net/gh/steventux/laing-solutions@1.0.0/public/styles/bg.png') #5c6063;
   border-bottom: 28px solid rgba(106, 138, 135, 0.55);
+  min-height: 232px;
 }
 .header, .content, .footer {
   max-width: 68%;
@@ -47,10 +48,6 @@ header {
   a {
     text-decoration:none;
     color:#f3f6f9;
-  }
-  .nav {
-    display:inline-block;
-    min-height: 100px;
   }
   h1:before {
     content: '{ ';
@@ -75,36 +72,43 @@ header {
   }
 }
 .nav {
+  text-align: right;
+  float: right;
+  display:inline-block;
+  min-height: 100px;
   min-width: 25%;
   vertical-align: top;
-  margin-top:44px;
-  ul {
-    list-style:none;
-  }
-  li {
-    margin: 12px;
-    a {
-      font-size: 22px;
-      color: lightyellow;
-      text-decoration:none;
+  margin-top:32px;
+  nav.main {
+    float: right;
+    ul {
+      list-style:none;
     }
-    a:hover {
-      color: rgba(0, 255, 236, 0.75);
-    }
-    a:before {
-      color: rgba(0, 255, 236, 0.75);
-    }
-    a.clients:before {
-      content: ':-) ';
-    }
-    a.code:before {
-      content: '> $ ';
-    }
-    a.comment:before {
-      content: '/** ';
-    }
-    a.contact:before {
-      content: '* @ ';
+    li {
+      margin: 12px;
+      a {
+        font-size: 22px;
+        color: lightyellow;
+        text-decoration:none;
+      }
+      a:hover {
+        color: rgba(0, 255, 236, 0.75);
+      }
+      a:before {
+        color: rgba(0, 255, 236, 0.75);
+      }
+      a.clients:before {
+        content: ':-) ';
+      }
+      a.code:before {
+        content: '> $ ';
+      }
+      a.comment:before {
+        content: '/** ';
+      }
+      a.contact:before {
+        content: '* @ ';
+      }
     }
   }
 }
